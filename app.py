@@ -237,8 +237,15 @@ def tornado():
 
 @app.route('/lab2/example')
 def example():
-    name = "Юстиниан Шишкин"
+    name = "Юстиниан Шишки"
     group = "ФБИ-14"
     curs = "3 курс"
     lab = "Лабораторная работа 2"
-    return render_template('example.html', name=name, group=group, curs=curs, lab=lab)
+    fruits = [
+        {'name': 'яблоки', 'price':100},
+        {'name': 'грущи', 'price':120},
+        {'name': 'апельсины', 'price':80},
+        {'name': 'мандарины', 'price':95},
+        {'name': 'манго', 'price':321}
+    ]
+    return render_template('example.html', name=name, group=group, curs=curs, lab=lab, fruits=fruits)
