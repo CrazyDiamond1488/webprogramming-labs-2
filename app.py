@@ -3,6 +3,7 @@ app = Flask(__name__)
 
 @app.route("/")
 @app.route("/index")
+
 def start():
     return redirect("/menu", code=302)
 
@@ -237,4 +238,7 @@ def tornado():
 @app.route('/lab2/example')
 def example():
     name = "Юстиниан Шишкин"
-    return render_template('example.html', name=name)
+    group = "ФБИ-14"
+    curs = "3 курс"
+    lab = "Лабораторная работа 2"
+    return render_template('example.html', name=name, group=group, curs=curs, lab=lab)
