@@ -235,7 +235,7 @@ def tornado():
 
 '''
 
-@app.route('/lab2/example')
+@app.route('/lab2/example/')
 def example():
     name = "Юстиниан Шишки"
     group = "ФБИ-14"
@@ -262,8 +262,12 @@ def example():
         {'avtor': 'Меттью Ревес', 'name': 'Программирование на Python', 'jshanr': 'Программирование', 'str':385},
     ]
 
-    return render_template('example.html', name=name, group=group, curs=curs, lab=lab, fruits=fruits, book=book)
+    return render_template('example.html',name=name, group=group, curs=curs, lab=lab, fruits=fruits, book=book)
 
 @app.route('/lab2/')
 def lab2():
     return render_template('lab2.html')
+
+@app.route('/lab2/game/')
+def game():
+    return render_template('lab2game.html' )

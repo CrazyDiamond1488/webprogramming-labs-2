@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 2 {% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if name %} {{name}} {% endif %}, {{lab}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+</head>
+<body>
+    <header>
+        WEB-программирование, часть 2. {% if lab %} {{lab}} {% endif %}
+    </header>
+    {% block main %}
+        <main style = "text-align: center" >
+            <h1>Самые популярные игры, созданные в странах СНГ</h1>
+            <h2>Escape From Tarkov</h2>
+            <img src="/static/tarkov.jpg" style="height: 600px; width: 900px;"/>
+    
+            <div style="font-size: 20pt;">
+                Escape from Tarkov – хардкорная сюжетная многопользовательская онлайн-игра на пересечении жанров FPS/TPS и RPG. 
+                Герой игры оказываeтся в современном российском городе, где царит анархия: только самые приспособленные смогут 
+                раскрыть все секреты Таркова и выбраться из него живыми. Боевой симулятор в опасных условиях использует множество 
+                системных модулей для полного погружения в геймплей и ощущения реальности происходящего.
+            </div>
+
+            <h2>WarThunder</h2>
+            <img src="/static/warThunder.jpg" style="height: 600px; width: 900px;"/>
+    
+            <div style="font-size: 20pt;">
+                War Thunder – самая масштабная бесплатная кроссплатформенная многопользовательская онлайн-игра, 
+                посвященная боевой технике самых разных войн и конфликтов – с начала XX века и до наших дней. Авиация, н
+                аземные силы и флот сражаются вместе в одном бою
+            </div>
+
+            <h2>Atomic Heart</h2>
+            <img src="/static/atomic.jpg" style="height: 600px; width: 900px;"/>
+    
+            <div style="font-size: 20pt;">
+                Atomic Heart  — компьютерная игра в жанре шутера от первого лица с элементами ролевой игры, разработанная 
+                российской студией Mundfish. Выход проекта состоялся 21 февраля 2023 года для стационарных игровых консолей 
+                PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S и персональных компьютеров под управлением 
+                операционной системы Windows.
+            </div>
+
+            <h2>World Of Tanks</h2>
+            <img src="/static/tanks.jpg" style="height: 600px; width: 900px;"/>
+    
+            <div style="font-size: 20pt;">
+                World of Tanks  — клиентская командная массовая многопользовательская онлайн-игра, 
+                посвящённая бронированным машинам середины XX века[4]. В распоряжении игроков более 40 боевых карт, 
+                созданных на основе реальных локаций времён Второй мировой войны, и исторически достоверная техника 
+                11 наций общей численностью более 600 единиц.
+            </div>
+
+            <h2>World of Warships</h2>
+            <img src="/static/warThunder.jpg" style="height: 600px; width: 900px;"/>
+    
+            <div style="font-size: 20pt;">
+                World of Warships  — компьютерная, клиентская массовая многопользовательская онлайн-игра в 
+                реальном времени в жанре аркадного симулятора морских сражений на кораблях, в 
+                том числе Arpeggio of Blue Steel, High School Fleet и других, анонсированная 16 августа 2011 
+                года издателем и разработчиком онлайн-игр кипрской компанией Wargaming.net, и вышедшая в релиз 17 сентября 2015 года.
+            </div>
+
+    </main>
+    {% endblock %}
+    <footer>
+        &copy;
+        {% if name %}
+            {{name}},
+        {% else %}
+            Анонимус,
+        {% endif %} 
+        {% if group %}
+            {{group}},
+        {% else %}
+            Безгрупный
+        {% endif %} 
+        {% if curs %}
+            {{curs}},
+        {% else %}
+            Какой-то курс
+        {% endif %} 
+        2023
+    </footer>
+</body>
+</html>
