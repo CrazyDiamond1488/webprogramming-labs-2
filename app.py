@@ -248,4 +248,18 @@ def example():
         {'name': 'мандарины', 'price':95},
         {'name': 'манго', 'price':321}
     ]
-    return render_template('example.html', name=name, group=group, curs=curs, lab=lab, fruits=fruits)
+    
+    book = [
+        {'avtor': 'Дэниел Киз ', 'name': 'Цветы для Элджернона', 'jshanr': 'Роман', 'str':320},
+        {'avtor': 'Марк Саммерфилд ', 'name': 'Python 3. Профессиональное программирование', 'jshanr': 'Программирование', 'str':1024},
+        {'avtor': 'Джоэл Грас', 'name': 'Fluent Python', 'jshanr': 'Программирование', 'str':792},
+        {'avtor': 'Эрик Мэтиз ', 'name': 'Изучаем Python', 'jshanr': 'Программирование', 'str':624},
+        {'avtor': 'Альберт Свергайт', 'name': 'Автоматизация рутины с помощью Python', 'jshanr': 'Программирование', 'str':592},
+        {'avtor': 'Марк Лутц', 'name': 'Изучаем Python', 'jshanr': 'Программирование', 'str':1616},
+        {'avtor': 'Дэн Бедер', 'name': 'Python для сложных задач', 'jshanr': 'Программирование', 'str':672},
+        {'avtor': 'Дэвид Бизли', 'name': 'Python. Тестирование, web-разработка, наука и изучение данных', 'jshanr': 'Программирование', 'str':512},
+        {'avtor': 'Аллен Б. Дауни', 'name': 'Learn Python Hard Way', 'jshanr': 'Программирование', 'str':385},
+        {'avtor': 'Меттью Ревес', 'name': 'Программирование на Python', 'jshanr': 'Программирование', 'str':385},
+    ]
+
+    return render_template('example.html', name=name, group=group, curs=curs, lab=lab, fruits=fruits, book=book)
