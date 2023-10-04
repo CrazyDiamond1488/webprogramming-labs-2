@@ -1,0 +1,61 @@
+.oak {
+    background: linear-gradient(#12c2e9, #c471ed, #f64f59);
+    margin: 0 auto;
+    text-align: center;
+    color: grey;
+   
+}
+
+html {
+    width: 100%;
+    height: 100%;
+
+}
+
+body {
+    font-family: Arial;
+    margin: 0px;
+}
+
+footer {
+    font-size: 16pt;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    text-align: right;
+    color: black;
+    font-family: Arial;
+    margin: 0px;
+
+}
+
+.neti {
+    background: linear-gradient(#0F2027, #203A43, #2C5364)
+}
+
+.python {
+    height: 400px;
+    width: 500px;
+}
+
+.text {
+    font-size: 16pt;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.python2 {
+    background: linear-gradient(#00B4DB,#0083B0 )
+}
+
+.tornado {
+    background: linear-gradient(#23074d, #cc5333)
+}
+
+.tornado2 {
+    width: 400px;
+}
+
+.textlab2 {
+    font-size: 26pt;
+    font-family: 'Courier New', Courier, monospace;
+}
