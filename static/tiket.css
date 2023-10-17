@@ -1,0 +1,9 @@
+.div {
+    border: solid 5px;
+    border-radius: 20px;
+    border-color: blueviolet;
+    margin-left: 33%;
+    width: 600px;
+    padding: 20px;
+    font-size: 20px;
+}
