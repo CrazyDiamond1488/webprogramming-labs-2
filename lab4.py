@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, redirect, url_for
 lab4 = Blueprint('lab4', __name__)
 
 @lab4.route('/lab4/')
@@ -91,10 +91,29 @@ def cookies():
         return render_template('cookies.html')
 
     color = request.form.get('color')
+    backgroundСolor = request.form.get('backgroundСolor')
+    fontSize = int(request.form.get('fontSize'))
+    errorss = None
+
+    if not fontSize:
+        errorss = 'введите размер!!!'
+        return redirect(url_for('lab4_cookies', errorss=errorss))
+    if color == backgroundСolor:
+        errorss = 'Цвет текста не должен совпадать с цветом фона.'
+        return redirect(url_for('lab4_cookies', errorss=errorss))
+
+    
+    if fontSize>30 or fontSize<5:
+        errorss = 'Размер текста должен быть от 5px до 30px.'
+        return redirect(url_for('lab4_cookies', errorss=errorss))
+    
     headers = {
-        'Set-Cookie': 'color = ' + color + '; path=/',
+        'Set-Cookie': [
+            'textColor=' + color + 'path=/',
+            'backgroundСolor=' + backgroundСolor + 'path=/',
+            'fontSize=' + str(fontSize) + 'path=/'
+        ],
         'Location': '/lab4/cookies'
     }
 
     return '', 303, headers
-
