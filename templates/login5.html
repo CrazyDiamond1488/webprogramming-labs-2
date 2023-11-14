@@ -3,21 +3,29 @@
 {% block lab %} Лабораторная работа 5 {% endblock %}
 
 {% block main %}
-    <h1>Формы (POST)</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5.css')}}">
+<div class="container4">
+    <div class="ramk">
     <h2>Пожалуйста, авторизуйтесь</h2>
-    <div>{{ error }}</div>
+    <div>
+        {% for error in errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
     <form method="post">
         <div>
             <label for="username">Пользователь</label>
-            <input type="text" id="username" name="username" value="{{ username or '' }}">
+            <input class="pole" type="text" id="username" name="username" value="{{ username or '' }}">
         </div>
         <div>
             <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" value="{{ password or '' }}">
+            <input class="pole" type="password" id="password" name="password" value="{{ password or '' }}">
         </div>
         <div>
             <button type="submit">Войти</button>
             <button type="reset">Отмена</button>
         </div>
     </form>
+    </div>
+</div>
 {% endblock %}
