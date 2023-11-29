@@ -59,6 +59,8 @@ def register():
     
     if len(password_form) < 5:
             errors.append("Пароль должен содержать не менее 5 символов")
+            print(errors)
+            return render_template('register6.html', errors=errors)
         
     
     hashPassword = generate_password_hash(password_form, method='pbkdf2')
