@@ -3,7 +3,7 @@ from Db import db
 
 from Db.models import users, articles
 from werkzeug.security import check_password_hash, generate_password_hash
-from flask_login import login_user, login_required, current_user
+from flask_login import login_user, login_required, current_user, logout_user
 
 lab6 = Blueprint('lab6', __name__)
 
@@ -91,10 +91,13 @@ def login6():
     return render_template("login6.html")
 
 
-@lab6.route("/lab6/articles")
-def articles_list():
-    my_articles = articles.query.filter_by(user_id=current_user.id).all()
-    return render_template("articles6.html", articles=my_articles)
+@lab6.route('/lab6/articles', methods = ['GET', 'POST'])
+@login_required
+def view_articles():
+    username_form = request.form.get('username')
+    my_articles = articles.query.filter((articles.user_id == current_user.id) | (articles.is_public == True)).order_by(articles.is_favorite.desc()).all()
+    print(my_articles)
+    return render_template('articles6.html', articles=my_articles, username_form = username_form)
 
 
 @lab6.route("/lab6/newarticle", methods=["GET", "POST"])
@@ -118,12 +121,25 @@ def createArticle():
     
     return redirect("/lab6/articles")
 
-@lab6.route("/lab6/articles/<int:article_id>")
+@lab6.route("/lab6/articles/<int:article_id>", methods=['GET', 'POST'])
+def getArticle(article_id):
+    if current_user.is_authenticated:
+        if request.method == 'POST':
+
+            article = articles.query.filter_by(id=article_id).first()
+        article = articles.query.filter_by(id=article_id).first()
+
+        if article:
+            if article.user_id == current_user.id or article.is_public:
+                text = article.article_text.splitlines()
+                return render_template("6articles.html", article_text=text, article_title=article.title, username=current_user.username)
+           
+
+@lab6.route('/lab6/logout')
 @login_required
-def viewArticle(article_id):
-    article = articles.query.filter_by(id=article_id).first()
-    if article:
-        return render_template("articles6.html", article=article)
+def logout():
+    logout_user()
+    return redirect('/lab6')
     
 
    

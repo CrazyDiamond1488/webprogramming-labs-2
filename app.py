@@ -26,7 +26,7 @@ db.init_app(app)
 
 login_manager = LoginManager()
 
-login_manager.login_view = 'lab6.login'
+login_manager.login_view = 'lab6.login6'
 login_manager.init_app(app)
 
 @login_manager.user_loader

@@ -16,9 +16,6 @@
     <div class="container">
     <a href="/lab6/articles">Посмотреть заметки</a>
     <a href="/lab6/newarticle">Создать заметки</a>
-    <form action="/lab6/logout">
-        <button class="button1" type="submit">Выйти</button>
-    </form>
     </div>
     <form action="/lab6/login">
         <button class="button1" type="submit">Логин</button>
@@ -36,12 +33,11 @@
         {% endif %}
 
     </div>
-
-    <div>статьи пользователя, {{ current_user.username }}</div>
-    <h1>Мои статьи</h1>
-    <ul>
-        {% for articles in articles %}
-            <li>{{ articles.title }} <a href="/lab6/articles/{{ articles.id }}">/lab6/articles/{{ articles.text }}</a></li>
-        {% endfor %}
-    </ul>
+</div>
+<div>
+    <h1>{{ article_title }}</h1>
+    {% for paragraph in article_text %}
+    <p> {{ paragraph }} </p>
+    {% endfor %}
+</div>
 {% endblock %}
