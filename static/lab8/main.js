@@ -20,6 +20,9 @@ function fillCourseList() {
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать';
+            editButton.onclick = function() {
+                editCourse(i, courses[i]);
+            }
 
             let delButton = document.createElement('button');
             delButton.innerText = 'удалить';
@@ -49,4 +52,58 @@ function deleteCourse(num) {
     .then(function () {
         fillCourseList();
     });
+}
+
+function showModal() {
+    document.querySelector('div.modal').style.display = 'block';
+}
+
+function hideModal() {
+    document.querySelector('div.modal').style.display = 'none';
+}
+
+function cancel() {
+    hideModal();
+}
+
+function addCourse() {
+    showModal();
+}
+
+function addCourse() {
+    document.getElementById('num').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('videos').value = '';
+    document.getElementById('price').value = '';
+    showModal();
+}
+
+function sendCourse() {
+    const num = document.getElementById('num').value;
+    const course = {
+        name: document.getElementById('name').value,
+        videos: document.getElementById('videos').value,
+        price: document.getElementById('price').value
+    }
+
+    const url = `/lab8/api/courses/${num}`;
+    const method = num ? 'PUT' : 'POST';
+    fetch(url,{
+        method: method,
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(course)
+    })
+    .then (function() {
+        fillCourseList();
+        hideModal();
+    });
+}
+
+function editCourse(num, course) {
+    document.getElementById('num').value = num;
+    document.getElementById('name').value = course.name;
+    document.getElementById('videos').value = course.videos;
+    document.getElementById('price').value = course.price;
+    showModal();
+
 }
