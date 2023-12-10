@@ -7,7 +7,7 @@ function fillCourseList() {
         let tbody = document.getElementById('course-list');
         tbody.innerHTML = '';
         for(let i = 0; i<courses.length; i++) {
-            tr = document.createElement('tr');
+            let tr = document.createElement('tr');
 
             let tdName = document.createElement('td');
             tdName.innerText = courses[i].name;
@@ -17,6 +17,9 @@ function fillCourseList() {
 
             let tdPrice = document.createElement('td');
             tdPrice.innerText = courses[i].price || 'бесплатно';
+
+            let tdCreatedAt = document.createElement('td'); // Добавляем элемент для даты создания
+            tdCreatedAt.innerText = new Date(courses[i].createdAt).toLocaleDateString();
 
             let editButton = document.createElement('button');
             editButton.innerText = 'редактировать';
@@ -33,12 +36,12 @@ function fillCourseList() {
             let tdActions = document.createElement('td');
             tdActions.append(editButton);
             tdActions.append(delButton);
-            
 
             tr.append(tdName);
             tr.append(tdVideos);
             tr.append(tdPrice);
             tr.append(tdActions);
+            tr.append(tdCreatedAt); // Добавляем ячейку с датой создания
 
             tbody.append(tr);
         }
@@ -71,6 +74,8 @@ function addCourse() {
 }
 
 function addCourse() {
+    const course = {}; // Добавляем переменную course
+    delete course.createdAt;
     document.getElementById('num').value = '';
     document.getElementById('name').value = '';
     document.getElementById('videos').value = '';
@@ -104,6 +109,7 @@ function editCourse(num, course) {
     document.getElementById('name').value = course.name;
     document.getElementById('videos').value = course.videos;
     document.getElementById('price').value = course.price;
+    delete course.createdAt;
     showModal();
 
 }
