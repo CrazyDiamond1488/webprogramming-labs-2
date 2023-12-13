@@ -88,7 +88,9 @@ function sendCourse() {
     const course = {
         name: document.getElementById('name').value,
         videos: document.getElementById('videos').value,
-        price: document.getElementById('price').value
+        price: document.getElementById('price').value,
+        createdAt: new Date().toString()
+        
     }
 
     const url = `/lab8/api/courses/${num}`;

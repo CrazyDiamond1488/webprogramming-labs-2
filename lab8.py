@@ -37,8 +37,8 @@ def put_course(course_num):
     if course_num < 0 or course_num >= len(courses):
         return 'Course not found', 404
     course = request.get_json()
-    course = courses[course_num]
-    course['createdAt'] = courses[course_num]['createdAt']
+    courses[course_num] = course
+    courses[course_num]['createdAt'] = course['createdAt']
     return courses[course_num]
 
 @lab8.route('/lab8/api/courses/', methods=['POST'])
