@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 9 {% endblock %}
+
+{% block main %}
+<style>
+    
+    pre {
+        border: 2px solid red;
+        text-align: center;
+        font-size: 24px;
+        padding: 10px;
+        margin: 20px;
+    }
+</style>
+
+<h1>Открытка с Новым годом</h1>
+{% if greeting %}
+    <pre>{{ greeting }}</pre>
+{% else %}
+    <form  action="/lab9/happy" method="get">
+        <label for="name">Имя получателя:</label><br>
+        <input type="text" id="name" name="name" value="{{ name }}"><br>
+        <label for="gender">Пол получателя:</label><br>
+        <input type="text" id="gender" name="gender" value="{{ gender }}"><br>
+        <label for="sender_name">Имя отправителя:</label><br>
+        <input type="text" id="sender_name" name="sender_name" value="{{ sender_name }}"><br><br>
+        <input type="submit" value="Создать открытку">
+    </form>
+{% endif %}
+
+{% endblock %}

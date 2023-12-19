@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа 9 {% endblock %}
+
+{% block script %}{% endblock %}
+
+{% block main %}
+<style>
+   body {
+  background-color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #e74c3c;
+  font-size: 48px;
+  margin-top: 50px;
+}
+
+p {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-image: url("/static/pamela.jpg");
+  background-size: cover;
+}
+
+.error-message {
+  margin-top: 50px;
+}
+
+</style>
+    <img src="/static/pamela.jpg" width="700" height="400">
+<h1>Ошибка 500 - Внутренняя ошибка сервера</h1>
+<p>Сервер обнаружил внутреннюю ошибку и не смог выполнить ваш запрос. Либо сервер перегружен, либо ошибка в приложении.</p>
+<p>Пожалуйста, вернитесь на <a href="/lab9/">главную страницу</a>.</p>
+
+{% endblock %}
